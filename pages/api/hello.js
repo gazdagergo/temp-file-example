@@ -2,7 +2,7 @@ const fs = require('fs');
 
 export default (req, res) => {
   if (req.method === 'POST') {
-    fs.writeFile('tmp/helloworld.txt', req.body?.text, function (err) {
+    fs.writeFile('/tmp/helloworld.txt', req.body?.text, function (err) {
       if (err) {
         res.status(500).json({ error: 'Error in file write' })
         return console.log(err);
@@ -12,7 +12,7 @@ export default (req, res) => {
   }
 
   if (req.method === 'GET'){
-    fs.readFile('tmp/helloworld.txt', 'utf8' , (err, data) => {
+    fs.readFile('/tmp/helloworld.txt', 'utf8' , (err, data) => {
       if (err) {
         console.error(err)
         return
